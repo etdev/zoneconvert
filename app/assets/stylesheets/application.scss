@@ -16,3 +16,32 @@
 
 @import "bourbon";
 @import "neat";
+
+* {
+  margin: 0;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
+
+.main-content {
+  position: absolute;
+  top: 100vh;
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+}
+
+html {
+  color: #fff;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}

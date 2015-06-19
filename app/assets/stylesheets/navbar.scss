@@ -1,0 +1,12 @@
+$nav-height: 8vh;
+
+.navbar {
+  background: rgba(0, 0, 0, .25);
+  border-bottom: 1px solid #fff;
+  height: $nav-height;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
+}
+
