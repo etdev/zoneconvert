@@ -8,5 +8,14 @@ $nav-height: 8vh;
   top: 0;
   width: 100vw;
   z-index: 1;
+  @include bp(sp) {
+    height: 20vh;
+    background: #0F0 !important;
+  };
 }
 
+.navbar-logo {
+  font-family: 'Lato', serif;
+  font-size: 48px;
+  line-height: $nav-height;
+}

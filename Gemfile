@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bourbon'
 gem 'neat'
+gem 'bitters'
 gem 'monban'
 gem 'slim-rails'
 
@@ -20,4 +21,5 @@ group :development, :test do
   gem 'spring'
   gem 'monban-generators'
 end
+
 
