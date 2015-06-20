@@ -2,6 +2,8 @@ $nav-height: 100px;
 $toggle-btn-height: 34px;
 $toggle-offset: ($nav-height - $toggle-btn-height) / 2;
 $top-offset: 25px;
+$highlight-blue: #10FFF6;
+$dull-text: #D8D8D7;
 
 .navbar-default {
   background-color: rgba(0, 0, 0, 0) !important;
@@ -16,20 +18,48 @@ $top-offset: 25px;
   li, a {
     color: #fff !important;
   }
-
 }
 
+.navbar-collapse {
+  border: none !important;
+}
+
+
 .navbar-toggle {
+  margin-top: 15px !important;
   .icon-bar {
     background-color: #fff !important;
   }
 }
 
-.navbar-collapse,
-.navbar-header,
-.navbar,
-.navbar-brand,
-.navbar-brand-content {
+.navbar-collapse {
+  border: none !important;
+}
+
+.in {
+  border: none !important;
+}
+
+.navbar-nav > li {
+  a:hover {
+    color: $dull-text !important;
+  }
+}
+.navbar-nav > li.active > a {
+  background-color: rgba(0, 0, 0, 0) !important;
+  @include bp(pc) { border-bottom: 3px solid $highlight-blue; }
+}
+
+.navbar-collapse ul li {
+  text-align: right;
+  @include bp(sp) {
+    text-align: center;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+}
+
+.navbar-nav {
   border: none !important;
   li {
     @include bp(pc) {
@@ -41,15 +71,25 @@ $top-offset: 25px;
 
 .navbar-brand-content {
   font-size: 2.4rem;
-    @include bp(pc) {
-      padding-top: 20px !important;
-      padding-bottom: 20px !important;
-    }
+  @include bp(pc) {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+}
+
+.glyphicon-fire {
+  color: $highlight-blue !important;
 }
 
 .navbar-brand-icon {
   padding-left: 0.4rem;
   padding-right: 0.8rem;
+}
+
+.navbar-brand-text {
+  &:hover {
+    color: $dull-text !important;
+  }
 }
 
 .fat-text {

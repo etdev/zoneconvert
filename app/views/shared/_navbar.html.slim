@@ -18,11 +18,11 @@ nav.navbar-default
     /! Collect the nav links, forms, and other content for toggling
     #navbar-collapse.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
-        li
+        li class=(current_page?(root_path) ? "active" : nil)
+          a href="#"  HOME
+        li class=(current_page?(root_path) ? nil : "active")
           a href="#"  ABOUT
-        li
-          a href="#"  ACCOUNT
-        li
+        li class=(current_page?(root_path) ? nil : "active")
           a href="#"  LOGIN
     /! /.navbar-collapse
   /! /.container-fluid
