@@ -1,11 +1,11 @@
 // responsive
 @mixin bp($point) {
   @if $point == xl {
-    @media (max-width: 1200px) {
+    @media (min-width: 992px) {
       @content;
     }
   } @else if $point == pc {
-    @media (max-width: 992px) {
+    @media (min-width: 768px)  {
       @content;
     }
   } @else if $point == sp {
