@@ -12,43 +12,11 @@
  *
  */
 
-@import "bourbon";
-@import "base/base";
-@import "neat";
-@import "zoneconvert-mixins";
-@import "navbar";
-@import "footer";
-@import "event";
-
-* {
-  margin: 0;
-}
-
-.bg {
-  position: absolute;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: -1;
-}
-
-.main-content {
-  position: absolute;
-  top: 100vh;
-  height: 100vh;
-  width: 100vw;
-  background: #000;
-}
-
-html {
-  color: #fff;
-  height: 100vh;
-}
-
-body {
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-}
-
+@import 'zoneconvert-mixins';
+@import 'custom';
+@import 'navbar';
+@import 'footer';
+@import 'event';
+@import "bootstrap-sprockets";
+@import 'bootstrap';
 

@@ -1,3 +1,4 @@
+// responsive
 @mixin bp($point) {
   @if $point == xl {
     @media (max-width: 1200px) {
@@ -12,4 +13,12 @@
       @content;
     }
   }
+}
+
+// navbar
+@mixin centerTextVert($elementHeight) {
+  height: $elementHeight !important;
+  line-height: $elementHeight !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }

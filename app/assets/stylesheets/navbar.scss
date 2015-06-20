@@ -1,21 +1,61 @@
-$nav-height: 8vh;
+$navHeight: 100px;
+$toggleBtnHeight: 34px;
+$toggleOffset : ($navHeight - $toggleBtnHeight) / 2;
 
-.navbar {
-  background: rgba(0, 0, 0, .25);
-  border-bottom: 1px solid #fff;
-  height: $nav-height;
+.navbar-default {
+  padding: 0 10%;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 400;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0) !important;
+  @include bp(pc) {
+    height: $navHeight;
+    line-height: $navHeight;
+  }
   position: absolute;
-  top: 0;
   width: 100vw;
+  top: 0;
   z-index: 1;
-  @include bp(sp) {
-    height: 20vh;
-    background: #0F0 !important;
-  };
+  li, a {
+    @include centerTextVert($navHeight);
+    color: #fff !important;
+  }
+}
+
+.navbar-toggle {
+  margin-top: $toggleOffset !important;
+  .icon-bar {
+    background-color: #fff !important;
+  }
+}
+
+ul.navbar-nav {
+  @include bp(pc) {
+    height: $navHeight;
+    line-height: $navHeight;
+  }
+}
+
+.navbar-brand-content {
+  font-size: 2.4rem;
+}
+.navbar-brand-icon {
+  padding-left: 0.4rem;
+  padding-right: 0.8rem;
 }
 
 .navbar-logo {
-  font-family: 'Lato', serif;
-  font-size: 48px;
-  line-height: $nav-height;
+  line-height: $navHeight;
+}
+
+.fat-text {
+  font-weight: 700;
+}
+.navbar {
+  min-height: $navHeight;
+}
+
+// actual list of links on right side
+.navbar-nav {
+  font-size: 1.67rem;
 }
