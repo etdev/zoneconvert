@@ -3,7 +3,7 @@ html
   head
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     = favicon_link_tag "favicon.ico"
-    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext"
+    /= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext"
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Montserrat"
     title nengo.io
     = stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true
@@ -11,5 +11,9 @@ html
     = csrf_meta_tags
     body
       = render "shared/navbar"
-      = yield
+      = image_tag("//static.pexels.com/photos/6499/mountains.jpg", class: "bg")
+      .bg-darken
+        .main-content
+          #navbar-spacer.spacer-short
+          = yield
       = render "shared/footer"

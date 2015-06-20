@@ -15,3 +15,19 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+$(function(){
+  $("button[data-toggle='collapse']").click(function() {
+    toggleNavSpacer();
+  });
+});
+
+var toggleNavSpacer = function(){
+  if ($("#navbar-spacer").hasClass("spacer-tall")) {
+    $("#navbar-spacer").removeClass("spacer-tall").addClass("spacer-short");
+    $( "p" ).removeClass( "myClass noClass" ).addClass( "yourClass" );
+  }
+  else {
+    $("#navbar-spacer").removeClass("spacer-short").addClass("spacer-tall");
+  }
+};

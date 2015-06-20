@@ -1,3 +1,5 @@
+$navbar-offset: 10vh;
+
 * {
   margin: 0;
 }
@@ -35,9 +37,23 @@ body {
 }
 
 .main-content {
-  background: #000;
+  margin: 0 !important;
+  padding: 0 !important;
   height: 100vh;
   position: absolute;
-  top: 100vh;
+  top: 0;
   width: 100vw;
+}
+
+#navbar-spacer {
+  height: $navbar-offset;
+  background-color: rgba(0, 255, 0, 0.5);
+}
+
+.spacer-short {
+  height: 103px !important;
+}
+
+.spacer-tall {
+  height: 252px !important;
 }
