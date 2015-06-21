@@ -1,28 +1,30 @@
-= form_for @user do |form|
-  .row
-    .col-xs-12.center-text
-      h2 Please sign in
-    .col-xs-12.center-text.skinny-text
-       | or 
-       = link_to "register a new account", new_user_path
-  .row
-    - if @user.errors.any?
-      .red.flash-warning
-        .main-content
-          = pluralize(@user.errors.count, "error")
-          |  prevented your account from being created:
-          ul
-            - @user.errors.full_messages.each do |error_message|
-              li
-                = error_message
-    .center-content
-      .form-group
-        = form.label :email
-        = form.email_field :email, class: "form-control"
-      .form-group
-        = form.label :password
-        = form.password_field :password, class: "form-control"
-      .row
-        .col-xs-12.col-sm-4.col-sm-offset-8
-          .form-group.center-text
-            = form.submit "Sign up", class: "form-control btn btn-primary"
+.container-fluid
+  = form_for @user do |form|
+    .row
+      .col-xs-12.center-text
+        h2.buffer-top.text-uppercase.fat-text Sign up
+      .col-xs-12.center-text.skinny-text.secondary-text
+        | or 
+        = link_to "sign in to an existing account", new_session_path
+    .row
+      - if @user.errors.any?
+        .red.flash-warning
+          .main-content
+            = pluralize(@user.errors.count, "error")
+            |  prevented your account from being created:
+            ul
+              - @user.errors.full_messages.each do |error_message|
+                li
+                  = error_message
+      .center-content
+        .form-group
+          = form.label :email
+          = form.email_field :email, class: "form-control"
+        .form-group
+          = form.label :password
+          = form.password_field :password, class: "form-control"
+        .row
+          .col-xs-12.col-sm-4.col-sm-offset-8
+            .form-group.center-text
+              = form.submit "Sign up", class: "form-control btn btn-primary"
+

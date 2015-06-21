@@ -24,8 +24,16 @@
   margin-right: auto;
 }
 
+.center-text-vert {
+  @extend .center-text;
+  @include center-vert(60px);
+}
+
 // similar to bootstrap "container" but can go inside container-fluid
 .center-content {
   @extend .main-content;
 }
 
+.buffer-top {
+  margin-top: 80px !important;
+}

@@ -35,3 +35,11 @@
 @mixin setFont($name, $serif-mode) {
   font-family: $name, $serif-mode !important;
 }
+
+// centering
+@mixin center-vert($height) {
+  height: $height;
+  line-height: $height;
+  margin: 0 auto;
+  padding: 0;
+}

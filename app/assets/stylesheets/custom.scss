@@ -14,6 +14,9 @@ body {
   height: 100%;
   color: #fff !important;
   @include setFont('Montserrat', 'sans-serif');
+  @include bp(sp) {
+    padding-top: 45px;
+  }
   padding-top: $navbar-offset-closed;
   width: 100%;
 }
@@ -26,7 +29,7 @@ a {
 }
 
 .bg {
-  height: 100vh;
+  height: 100%;
   position: absolute;
   top: 0;
   width: 100vw;
@@ -36,7 +39,7 @@ a {
 .bg-darken {
   background:
     linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4));
-  height: 100vh;
+  height: 100%;
   position: absolute;
   top: 0;
   width: 100vw;
@@ -86,8 +89,9 @@ a {
 }
 .btn.btn-primary {
   background: $text-muted;
-  border: solid 1px $text-more-muted;
+  border: solid 1px $text-more-muted !important;
   &:hover {
+    background: $text-more-muted;
     background: $text-more-muted;
   }
 }
@@ -111,3 +115,6 @@ input[type=submit] {
   margin-top: 1vh !important;
 }
 
+.top-buffer {
+  margin-top: 35px !important;
+}

@@ -10,9 +10,9 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
     body
-        = render "shared/navbar"
+      = render "shared/navbar"
+      .page-wrap
         = image_tag("//static.pexels.com/photos/6499/mountains.jpg", class: "bg")
         .bg-darken
-        .container-fluid
-          = yield
-        = render "shared/footer"
+        = yield
+      = render "shared/footer"

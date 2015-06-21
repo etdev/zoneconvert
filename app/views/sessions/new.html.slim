@@ -1,0 +1,19 @@
+= form_for :session, url: session_path do |form|
+  .row
+    .col-xs-12.center-text
+      h2.buffer-top.text-uppercase.fat-text Sign in
+    .col-xs-12.center-text.skinny-text.secondary-text
+       | or 
+       = link_to "sign up for a new account", new_user_path
+  .row
+    .center-content
+      .form-group
+        = form.label :email
+        = form.email_field :email, class: "form-control"
+      .form-group
+        = form.label :password
+        = form.password_field :password, class: "form-control"
+      .row
+        .col-xs-12.col-sm-4.col-sm-offset-8
+          .form-group.center-text
+            = form.submit "Sign in", class: "form-control btn btn-primary"

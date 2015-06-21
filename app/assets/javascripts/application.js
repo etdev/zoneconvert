@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -22,6 +23,7 @@ var NAVBAR_HEIGHT_OPEN = 252;
 $(function(){
   $("button[data-toggle='collapse']").click(function() {
     toggleNavPadding();
+    console.log("NAVBAR TOGGLE BUTTON CLICKED");
   });
 });
 

@@ -19,10 +19,12 @@ nav.navbar-default.navbar-static-top
     #navbar-collapse.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         li class=(current_page?(root_path) ? "active" : nil)
-          a href=root_path  HOME
+          = link_to "Home", root_path, class: "text-uppercase"
         li class=(current_page?(about_path) ? "active" : nil)
-          a href=about_path ABOUT
-        li class=(current_page?(new_user_path) ? "active" : nil)
-          a href=new_user_path LOGIN
-    /! /.navbar-collapse
-  /! /.container-fluid
+          = link_to "About", about_path, class: "text-uppercase"
+        - if current_user
+          li class=(current_page?(user_path(current_user)) ? "active" : nil)
+            = link_to "Account", current_user, class: "text-uppercase"
+        - else
+          li class=(current_page?(new_session_path) ? "active" : nil)
+            a href=new_session_path SIGN IN
