@@ -19,10 +19,10 @@ nav.navbar-default.navbar-static-top
     #navbar-collapse.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         li class=(current_page?(root_path) ? "active" : nil)
-          a href="#"  HOME
-        li class=(current_page?(root_path) ? nil : nil)
-          a href="#"  ABOUT
-        li class=(current_page?(root_path) ? nil : nil)
-          a href="#"  LOGIN
+          a href=root_path  HOME
+        li class=(current_page?(about_path) ? "active" : nil)
+          a href=about_path ABOUT
+        li class=(current_page?(new_user_path) ? "active" : nil)
+          a href=new_user_path LOGIN
     /! /.navbar-collapse
   /! /.container-fluid

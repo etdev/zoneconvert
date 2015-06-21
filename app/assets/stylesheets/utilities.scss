@@ -4,13 +4,13 @@
 }
 
 .red {
-  background-color: rgba(255, 0, 0, 0.6) !important;
+  background-color: rgba(255, 0, 0, 0.36);
 }
 .blue {
-  background-color: rgba(0, 0, 255, 0.6);
+  background-color: rgba(0, 0, 255, 0.36);
 }
 .green {
-  background-color: rgba(0, 255, 0, 0.6);
+  background-color: rgba(0, 255, 0, 0.36);
 }
 
 .bold-border {
@@ -23,3 +23,9 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+// similar to bootstrap "container" but can go inside container-fluid
+.center-content {
+  @extend .main-content;
+}
+

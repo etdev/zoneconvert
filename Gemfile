@@ -13,6 +13,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'bitters'
 gem 'monban'
+gem 'monban-generators'
 gem 'slim-rails'
 
 group :development, :test do
