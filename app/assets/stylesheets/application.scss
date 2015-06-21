@@ -12,12 +12,14 @@
  *
  */
 
-@import 'zoneconvert-mixins';
+@import 'custom-mixins';
+@import 'colors';
 @import 'custom';
 @import 'navbar';
 @import 'footer';
-@import 'event';
+@import 'events';
 @import "bootstrap-sprockets";
 @import 'bootstrap';
 @import 'text-scale';
+@import 'utilities';
 

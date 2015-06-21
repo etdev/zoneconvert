@@ -21,7 +21,6 @@ var NAVBAR_HEIGHT_OPEN = 252;
 
 $(function(){
   $("button[data-toggle='collapse']").click(function() {
-    //toggleNavSpacer();
     toggleNavPadding();
   });
 });

@@ -96,10 +96,18 @@ $dull-text: rgba(255, 255, 255, 0.6);
 }
 
 .fat-text {
-  font-weight: 700;
+  font-weight: 800 !important;
 }
 
 // actual list of links on right side
 .navbar-nav {
   font-size: 1.67rem;
+}
+
+.main-text {
+  height: 45vh;
+  h2 {
+    font-size: 2em;
+    letter-spacing: 0.1em;
+  }
 }
