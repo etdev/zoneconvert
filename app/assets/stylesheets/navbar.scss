@@ -109,13 +109,13 @@ $dull-text: rgba(255, 255, 255, 0.85);
   @include bp(sp) {
     margin-top: 6vh;
   }
-  line-height: 20vh;
   h2 {
     //font-size: 2em;
     letter-spacing: 0.1em;
   }
 }
 
-.new-event-form {
-  
+p.text-secondary {
+  @include setFont("Open Sans", "sans-serif");
+  font-weight: 300;
 }
