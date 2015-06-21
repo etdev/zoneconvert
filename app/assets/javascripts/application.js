@@ -16,18 +16,22 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
+var NAVBAR_HEIGHT_CLOSED = 103;
+var NAVBAR_HEIGHT_OPEN = 252;
+
 $(function(){
   $("button[data-toggle='collapse']").click(function() {
-    toggleNavSpacer();
+    //toggleNavSpacer();
+    toggleNavPadding();
   });
 });
 
-var toggleNavSpacer = function(){
-  if ($("#navbar-spacer").hasClass("spacer-tall")) {
-    $("#navbar-spacer").removeClass("spacer-tall").addClass("spacer-short");
-    $( "p" ).removeClass( "myClass noClass" ).addClass( "yourClass" );
+// make room for expanded navbar
+var toggleNavPadding = function() {
+  if (parseInt($("body").css("padding-top")) > NAVBAR_HEIGHT_CLOSED) {
+    $("body").animate({ "padding-top": "-=159" }, 200);
   }
   else {
-    $("#navbar-spacer").removeClass("spacer-short").addClass("spacer-tall");
+    $("body").animate({ "padding-top": "+=159" }, 200);
   }
 };

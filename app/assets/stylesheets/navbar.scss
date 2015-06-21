@@ -15,7 +15,8 @@ $dull-text: rgba(255, 255, 255, 0.6);
   position: absolute;
   top: 0;
   width: 100vw;
-  z-index: 1;
+  z-index: 100;
+  clear: both;
 
   li, a {
     color: #fff !important;
@@ -38,7 +39,7 @@ $dull-text: rgba(255, 255, 255, 0.6);
   border: none !important;
 }
 
-.in {
+.navbar-collapse.in {
   border: none !important;
 }
 

@@ -13,7 +13,6 @@ html
       = render "shared/navbar"
       = image_tag("//static.pexels.com/photos/6499/mountains.jpg", class: "bg")
       .bg-darken
-        .main-content
-          #navbar-spacer.spacer-short
-          = yield
-      = render "shared/footer"
+      .main-content
+        = yield
+        = render "shared/footer"
