@@ -1,20 +1,6 @@
-.row
-  .col-xs-12.center-text.main-text
-    h2.text-uppercase.fat-text Timezones are confusing.
-    p.text-secondary But with ZoneConvert, you can easily convert between timezones.
-    p.text-secondary the time in question, and your location.
-
-= form_for @event do |form|
+.container-fluid
   .row
     .col-xs-12.center-text.main-text
-      = form.label :dest_place, "Destination"
-      = form.text_field :dest_place, "Los Angeles, CA"
-    .col-xs-12.center-text.main-text
-      = form.label :dest_time, "Destination"
-      = form.text_field :dest_time, "Today"
-    .col-xs-12.center-text.main-text
-      = form.label :dest_time, "Destination"
-      = form.text_field :dest_time, "Today"
-    .col-xs-12.center-text.main-text
-      = form.label :dest_time, "Destination"
-      = form.text_field :dest_time, "Today"
+      h2.text-uppercase.fat-text Timezones are confusing.
+      p.text-secondary But with ZoneConvert, you can easily convert between them.
+

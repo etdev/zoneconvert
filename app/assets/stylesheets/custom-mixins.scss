@@ -43,3 +43,8 @@
   margin: 0 auto;
   padding: 0;
 }
+
+@mixin border-box() {
+  box-sizing: border-box;
+}
+

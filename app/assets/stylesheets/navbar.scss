@@ -73,7 +73,7 @@ $dull-text: rgba(255, 255, 255, 0.85);
 }
 
 .navbar-brand-content {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   @include bp(pc) {
     padding-top: 20px !important;
     padding-bottom: 20px !important;
@@ -101,7 +101,13 @@ $dull-text: rgba(255, 255, 255, 0.85);
 
 // actual list of links on right side
 .navbar-nav {
-  font-size: 1.67rem;
+  font-size: 1.87rem;
+  li a {
+    @include bp(pc) {
+      //padding-left: 20px;
+      @include border-box;
+    }
+  }
 }
 
 .main-text {

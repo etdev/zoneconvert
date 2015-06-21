@@ -12,5 +12,5 @@ footer.site-footer
           | Third Link
       .col-xs-6.col-sm-3
         .
-          | Fourth Link
+          =(current_user ? current_user.email : "Not logged in")
 

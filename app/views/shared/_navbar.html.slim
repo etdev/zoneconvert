@@ -25,6 +25,10 @@ nav.navbar-default.navbar-static-top
         - if current_user
           li class=(current_page?(user_path(current_user)) ? "active" : nil)
             = link_to "Account", current_user, class: "text-uppercase"
+          li class=(current_page?(user_path(current_user)) ? "active" : nil)
+            = link_to "Sign Out", session_path(current_user), class: "text-uppercase", method: :delete
         - else
           li class=(current_page?(new_session_path) ? "active" : nil)
-            a href=new_session_path SIGN IN
+            = link_to "Sign in", new_session_path, class: "text-uppercase"
+          li
+            = link_to "Sign up", new_user_path, class: "text-uppercase btn btn-register"

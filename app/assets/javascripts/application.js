@@ -30,9 +30,9 @@ $(function(){
 // make room for expanded navbar
 var toggleNavPadding = function() {
   if (parseInt($("body").css("padding-top")) > NAVBAR_HEIGHT_CLOSED) {
-    $("body").animate({ "padding-top": "-=159" }, 200);
+    $("body").animate({ "padding-top": "-=212" }, 200);
   }
   else {
-    $("body").animate({ "padding-top": "+=159" }, 200);
+    $("body").animate({ "padding-top": "+=212" }, 200);
   }
 };
