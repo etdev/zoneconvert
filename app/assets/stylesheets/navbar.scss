@@ -105,9 +105,17 @@ $dull-text: rgba(255, 255, 255, 0.6);
 }
 
 .main-text {
-  height: 45vh;
+  margin-top: 15vh;
+  @include bp(sp) {
+    margin-top: 6vh;
+  }
+  line-height: 20vh;
   h2 {
-    font-size: 2em;
+    //font-size: 2em;
     letter-spacing: 0.1em;
   }
+}
+
+.new-event-form {
+  
 }
