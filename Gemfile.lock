@@ -55,6 +55,8 @@ GEM
     bootstrap-sass (3.3.5)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootstrap3-datetimepicker-rails (4.7.14)
+      momentjs-rails (>= 2.8.1)
     bourbon (4.2.3)
       sass (~> 3.4)
       thor
@@ -108,6 +110,8 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
+    momentjs-rails (2.10.3)
+      railties (>= 3.1)
     monban (0.2.1)
       bcrypt
       rails
@@ -231,6 +235,7 @@ DEPENDENCIES
   binding_of_caller
   bitters
   bootstrap-sass (~> 3.3.5)
+  bootstrap3-datetimepicker-rails (~> 4.7.14)
   bourbon
   capybara
   coffee-rails (~> 4.1.0)
@@ -239,6 +244,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  momentjs-rails (>= 2.8.1)
   monban
   monban-generators
   neat

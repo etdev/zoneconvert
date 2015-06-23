@@ -15,6 +15,8 @@ gem 'bitters'
 gem 'monban'
 gem 'slim-rails'
 gem 'jquery-turbolinks'
+gem 'momentjs-rails', '>= 2.8.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 
 group :development, :test do
   gem 'pry'

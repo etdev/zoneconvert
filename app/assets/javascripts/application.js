@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
 
 var NAVBAR_HEIGHT_CLOSED = 103;
 var NAVBAR_HEIGHT_OPEN = 252;
