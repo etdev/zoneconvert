@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
 
     if sign_in(user)
       redirect_to root_path
+      flash[:success] = "Welcome back, #{user.email}!"
     else
       render :new
     end

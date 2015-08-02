@@ -15,5 +15,6 @@ html
       .page-wrap
         = image_tag("//static.pexels.com/photos/6499/mountains.jpg", class: "bg")
         .bg-darken
+        = render "shared/flash"
         = yield
       = render "shared/footer"
