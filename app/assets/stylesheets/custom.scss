@@ -1,21 +1,17 @@
 $navbar-offset-closed: 103px;
 $navbar-offset-open: 252px;
 
-html, body { overflow-x: hidden; }
-
-html {
+html, body {
   height: 100%;
   width: 100%;
 }
 
 body {
-  height: 100%;
   @include setFont('Montserrat', 'sans-serif');
   @include bp(sp) {
     padding-top: 45px;
   }
   padding-top: $navbar-offset-closed;
-  width: 100% !important;
 }
 
 div.secondary-text {
