@@ -3,7 +3,6 @@ html
   head
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     = favicon_link_tag "favicon.ico"
-    /= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext"
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Montserrat"
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:400,300"
     title ZoneConvert
@@ -13,7 +12,7 @@ html
     body
       = render "shared/navbar"
       .page-wrap
-        = image_tag("//static.pexels.com/photos/6499/mountains.jpg", class: "bg")
+        = image_tag("mountains-s.jpg", class: "bg")
         .bg-darken
         = render "shared/flash"
         = yield

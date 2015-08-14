@@ -16,17 +16,16 @@ body {
   }
   padding-top: $navbar-offset-closed;
   width: 100% !important;
-  color: #FFF !important;
 }
 
-h1, h2, h3, p, span {
+div.secondary-text {
   color: #fff;
 }
 
 a {
-  color: $see-thru !important;
+  color: $see-thru;
   &:hover{
-    color: $see-more-thru !important;
+    color: $see-more-thru;
   }
 }
 
