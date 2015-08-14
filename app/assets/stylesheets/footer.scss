@@ -11,15 +11,15 @@ $foot-height: 100px;
   content: "";
   display: block;
 }
+
 .site-footer, .page-wrap:after {
-  color: #ddd;
   height: 60px;
   position: absolute;
   width: 100vw;
   bottom: 0;
   @include bp(sp) {
     display: none;
-    #foot-calendar-support, #foot-real-time-updates {
+    #calendar-support, #real-time-updates {
       display: none;
     }
   }

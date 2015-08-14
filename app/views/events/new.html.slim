@@ -10,11 +10,13 @@
           | Them
         input.form-control type="text" placeholder="Location, e.g. Tokyo, Japan"
         #datetimepicker1.input-group.date-remote
-          input.form-control type="text" placeholder="Time/Date"/
+          input.form-control type="text" placeholder="Date/Time"/
           span.input-group-addon
             span.glyphicon.glyphicon-calendar
 
         label.you
           | You
         input.form-control type="text" placeholder="Location, e.g. LA, California"
-        button.btn.btn-default type="submit" Calculate
+        .row
+          .col-sm-12.col-md-6
+            button.btn.btn-primary.center-text.event-submit-btn.pull-right type="submit" Calculate
