@@ -2,10 +2,10 @@
   = form_for @user do |form|
     .row
       .col-xs-12.center-text
-        h2.buffer-top.text-uppercase.fat-text Sign up
+        h2.buffer-top.text-uppercase.fat-text.main-text Sign up
       .col-xs-12.center-text.skinny-text.secondary-text
-        | or 
-        = link_to "sign in to an existing account", new_session_path
+        | or
+        = link_to " sign in to an existing account", new_session_path
     .row
       - if @user.errors.any?
         .red.flash-warning
@@ -16,7 +16,7 @@
               - @user.errors.full_messages.each do |error_message|
                 li
                   = error_message
-      .center-content
+      .center-content.user-form
         .form-group
           = form.label :email
           = form.email_field :email, class: "form-control"

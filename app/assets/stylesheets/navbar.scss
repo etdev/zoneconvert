@@ -110,18 +110,3 @@ $dull-text: rgba(255, 255, 255, 0.85);
   }
 }
 
-.main-text {
-  margin-top: 15vh;
-  @include bp(sp) {
-    margin-top: 6vh;
-  }
-  h2 {
-    //font-size: 2em;
-    letter-spacing: 0.1em;
-  }
-}
-
-p.text-secondary {
-  @include setFont("Open Sans", "sans-serif");
-  font-weight: 300;
-}

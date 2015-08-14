@@ -143,3 +143,20 @@ input[type=submit] {
 .top-buffer {
   margin-top: 35px !important;
 }
+
+.main-text {
+  margin-top: 15vh;
+  color: #fff;
+  @include bp(sp) {
+    margin-top: 6vh;
+  }
+  h2 {
+    //font-size: 2em;
+    letter-spacing: 0.1em;
+  }
+}
+
+p.text-secondary {
+  @include setFont("Open Sans", "sans-serif");
+  font-weight: 300;
+}

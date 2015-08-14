@@ -12,16 +12,15 @@ $foot-height: 100px;
   display: block;
 }
 .site-footer, .page-wrap:after {
+  color: #ddd;
   height: 60px;
   position: absolute;
   width: 100vw;
   bottom: 0;
   @include bp(sp) {
-    #calendar-support, #real-time-updates {
+    display: none;
+    #foot-calendar-support, #foot-real-time-updates {
       display: none;
-    }
-    #sinatra-backend {
-      float: left;
     }
   }
 }

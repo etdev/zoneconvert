@@ -1,12 +1,12 @@
 = form_for :session, url: session_path do |form|
   .row
-    .col-xs-12.center-text
+    .col-xs-12.center-text.main-text
       h2.buffer-top.text-uppercase.fat-text Sign in
     .col-xs-12.center-text.skinny-text.secondary-text
-       | or 
-       = link_to "sign up for a new account", new_user_path
+       | or
+       = link_to " sign up for a new account", new_user_path
   .row
-    .center-content
+    .center-content.session-form
       .form-group
         = form.label :email
         = form.email_field :email, class: "form-control"
