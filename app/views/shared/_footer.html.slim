@@ -1,16 +1,12 @@
 footer.site-footer
   .row
     .center-text.center-text-vert
-      .col-xs-6.col-sm-3
-        .
-          | Google Calendar Support
-      .col-xs-6.col-sm-3
-        .
-          | Sinatra Backend
-      .col-xs-6.col-sm-3
-        .
-          | Real-time Updates
-      .col-xs-6.col-sm-3
-        .
-          =(current_user ? current_user.email : "Not logged in")
+      .col-xs-6.col-sm-3#calendar-support
+        | Google Calendar Support
+      .col-xs-6.col-sm-3#sinatra-backend
+        | Sinatra Backend
+      .col-xs-6.col-sm-3#real-time-updates
+        | Real-time Updates
+      .col-xs-6.col-sm-3#logged-in-check
+        =(current_user ? current_user.email : "Not logged in")
 

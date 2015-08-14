@@ -13,8 +13,16 @@ $foot-height: 100px;
 }
 .site-footer, .page-wrap:after {
   height: 60px;
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
   @include bp(sp) {
-    display: none;
+    #calendar-support, #real-time-updates {
+      display: none;
+    }
+    #sinatra-backend {
+      float: left;
+    }
   }
 }
 .site-footer {
