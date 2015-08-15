@@ -14,8 +14,12 @@ body {
   padding-top: $navbar-offset-closed;
 }
 
-div.secondary-text {
+.secondary-text {
   color: #fff;
+}
+
+.full-page {
+  height: 100vh;
 }
 
 a {
