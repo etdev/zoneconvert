@@ -9,6 +9,6 @@ module API
 
   def base_url
     #"http://api.zoneconvert.com"
-    "localhost:4001"
+    "http://localhost:4001"
   end
 end
