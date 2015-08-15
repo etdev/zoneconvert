@@ -3,7 +3,6 @@ require 'sinatra/cross_origin'
 require 'yaml'
 require 'curb'
 require 'json'
-require 'sinatra/cross_origin'
 
 enable :cross_origin
 set :allow_origin, :any
@@ -13,15 +12,10 @@ class ZonesAPI < Sinatra::Base
     headers \
           "Access-Control-Allow-Origin"   => "*"
     location = params["location"]
-    load_data('geocode.yaml')
+    load_data('geocode.yml')
     url = build_url_mq(escape_HTML(location))
     response = process_json(get_response(url)["results"][0]["locations"][0])
-    puts "Current time: #{Time.now.utc}"
-    temp_time = get_timestamp(Time.now.utc)
-    puts "Current timestamp (UTC): #{temp_time}"
-    puts "Converted back from timestamp: #{Time.at(temp_time)}"
     time = coord_to_time(response[:lat], response[:lng], Time.now.utc)
-    puts time.to_json
     time.to_json
   end
 
@@ -66,10 +60,8 @@ class ZonesAPI < Sinatra::Base
   end
 
   def process_timestamp(base_timestamp, dst_off, raw_off)
-    puts "base_timestamp: #{base_timestamp}, dst_off: #{dst_off}, raw_off: #{raw_off}"
     total = base_timestamp + dst_off + raw_off
     { time: remove_utc(Time.at(total).utc.to_s) }
-
   end
 
   def load_data(filename)
@@ -81,34 +73,53 @@ class ZonesAPI < Sinatra::Base
   end
 
   def process_json(data)
-   street = data["street"]
-   adminArea6 = data["adminArea6"]
-   adminArea6Type = data["adminArea6Type"]
-   adminArea5 = data["adminArea5"]
-   adminArea5Type = data["adminArea5Type"]
-   adminArea4 = data["adminArea4"]
-   adminArea4Type = data["adminArea4Type"]
-   adminArea3 = data["adminArea3"]
-   adminArea3Type = data["adminArea3Type"]
-   adminArea2 = data["adminArea2"]
-   adminArea2Type = data["adminArea2Type"]
-   adminArea1 = data["adminArea1"]
-   adminArea1Type = data["adminArea1Type"]
-   postalCode = data["postalCode"]
-   geocodeQualityCode = data["geocodeQualityCode"]
-   geocodeQuality = data["geocodeQuality"]
-   dragPoint = data["dragPoint"]
-   sideOfStreet = data["sideOfStreet"]
-   linkId = data["linkId"]
-   unknownInput = data["unknownInput"]
-   type = data["type"]
-   lat = data["latLng"]["lat"]
-   lng = data["latLng"]["lng"]
-   disp_lat = data["displayLatLng"]["lat"]
-   disp_lng = data["displayLatLng"]["lng"]
+   #street = data["street"]
+   #adminArea6 = data["adminArea6"]
+   #adminArea6Type = data["adminArea6Type"]
+   #adminArea5 = data["adminArea5"]
+   #adminArea5Type = data["adminArea5Type"]
+   #adminArea4 = data["adminArea4"]
+   #adminArea4Type = data["adminArea4Type"]
+   #adminArea3 = data["adminArea3"]
+   #adminArea3Type = data["adminArea3Type"]
+   #adminArea2 = data["adminArea2"]
+   #adminArea2Type = data["adminArea2Type"]
+   #adminArea1 = data["adminArea1"]
+   #adminArea1Type = data["adminArea1Type"]
+   #postalCode = data["postalCode"]
+   #geocodeQualityCode = data["geocodeQualityCode"]
+   #geocodeQuality = data["geocodeQuality"]
+   #dragPoint = data["dragPoint"]
+   #sideOfStreet = data["sideOfStreet"]
+   #linkId = data["linkId"]
+   #unknownInput = data["unknownInput"]
+   #type = data["type"]
+   #lat = data["latLng"]["lat"]
+   #lng = data["latLng"]["lng"]
+   #disp_lat = data["displayLatLng"]["lat"]
+   #disp_lng = data["displayLatLng"]["lng"]
 
-   return { street: street, adminArea6: adminArea6, adminArea6Type: adminArea6Type, adminArea5: adminArea5, adminArea5Type: adminArea5Type, adminArea4: adminArea4, adminArea4Type: adminArea4Type, adminArea3: adminArea3, adminArea3Type: adminArea3Type, adminArea2: adminArea2, adminArea2Type: adminArea2Type, adminArea1: adminArea1, adminArea1Type: adminArea1Type, postalCode: postalCode, geocodeQualityCode: geocodeQualityCode, geocodeQuality: geocodeQuality, dragPoint: dragPoint, sideOfStreet: sideOfStreet, linkId: linkId, unknownInput: unknownInput, type: type, lat: lat, lng: lng, disp_lat: disp_lat, disp_lng: disp_lng  }
+   binding.pry
+   data.slice[*wanted_keys].merge(two_level_keys(data))
+   #{ street: street, adminArea6: adminArea6, adminArea6Type: adminArea6Type, adminArea5: adminArea5, adminArea5Type: adminArea5Type, adminArea4: adminArea4, adminArea4Type: adminArea4Type, adminArea3: adminArea3, adminArea3Type: adminArea3Type, adminArea2: adminArea2, adminArea2Type: adminArea2Type, adminArea1: adminArea1, adminArea1Type: adminArea1Type, postalCode: postalCode, geocodeQualityCode: geocodeQualityCode, geocodeQuality: geocodeQuality, dragPoint: dragPoint, sideOfStreet: sideOfStreet, linkId: linkId, unknownInput: unknownInput, type: type, lat: lat, lng: lng, disp_lat: disp_lat, disp_lng: disp_lng  }
+  end
 
+  def wanted_keys
+    %w(street, adminArea6, adminArea6Type, adminArea5, adminArea5Type,
+       adminArea4, adminArea4Type, adminArea3, adminArea3Type, adminArea2,
+       adminArea2Type, adminArea1, adminArea1Type, postalCode,
+       geocodeQualityCode, geocodeQuality, dragPoint, sideOfStreet, linkId,
+       unknownInput, type, latLng, displayLatLng
+      )
+  end
+
+  def two_level_keys(data)
+    {
+      lat: data["latLng"]["lat"],
+      lng: data["latLng"]["lng"],
+      disp_lat: data["displayLatLng"]["lat"],
+      disp_lng: data["displayLatLng"]["lng"]
+    }
   end
 
 end

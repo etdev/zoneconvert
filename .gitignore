@@ -36,5 +36,6 @@ bower.json
 
 # Ignore api config file
 /api/geocode.yaml
+/api/geocode.yml
 
 .rbenv-vars
