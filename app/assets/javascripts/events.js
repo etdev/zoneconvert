@@ -1,4 +1,4 @@
 $(function () {
-  $('#datetimepicker1').datetimepicker();
+  $('#dt_picker_remote').datetimepicker();
 });
 

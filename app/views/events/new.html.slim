@@ -5,18 +5,16 @@
       p.text-secondary But with ZoneConvert, you can easily convert between them.
   .row
     .col-sm-10.col-md-6.col-sm-offset-1.col-md-offset-3
-      .form-group.event-form
-        label
-          | Them
-        input.form-control type="text" placeholder="Location, e.g. Tokyo, Japan"
-        #datetimepicker1.input-group.date-remote
-          input.form-control type="text" placeholder="Date/Time"/
+      = form_for @event, html: {class: "event-form"} do |form|
+        = form.label :them, "Them"
+        = form.text_field :remote_location, class: "form-control", placeholder: "Location, e.g. Tokyo, Japan"
+        #dt_picker_remote.input-group
+          = form.text_field :remote_time, class: "form-control", id: "#datepicker1", placeholder: "Date/Time"
           span.input-group-addon
             span.glyphicon.glyphicon-calendar
-
-        label.you
-          | You
-        input.form-control type="text" placeholder="Location, e.g. LA, California"
+        = form.label :you, "You"
+        = form.text_field :local_location, class: "form-control", placeholder: "Location, e.g. Los Angeles, CA"
         .row
           .col-sm-12.col-md-6.col-md-offset-6
-            button.btn.btn-primary.center-text.event-submit-btn.pull-right type="submit" Calculate
+            = form.submit "Calculate", class: "form-control btn btn-primary"
+

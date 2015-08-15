@@ -8,16 +8,6 @@ require 'pry'
 enable :cross_origin
 set :allow_origin, :any
 
-# basic idea:
-#   remote_time = 08/15/2015 10:41 AM
-#   remote_time_int = standardized int rep.
-#   remote_location = Tokyo, Japan
-#   remote_offset = get_offset(remote_location)
-#   local_offset = get_offset(local_location)
-#   local_time_int = remote_time_int + diff(remote_off, local_off)
-#   local_time = normalize(local_time_int)
-#   args: ++remote_time++, ++local_location++, ++remote_location++
-
 class ZonesAPI < Sinatra::Base
   get '/' do
     headers \
@@ -25,7 +15,6 @@ class ZonesAPI < Sinatra::Base
 
     DATA = load_data('geocode.yml')
 
-    binding.pry
     # get remote time as UNIX
     remote_time = params["remote_time"]
     remote_time_int = remote_time.to_i

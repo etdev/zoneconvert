@@ -14,7 +14,6 @@ gem 'slim-rails'
 gem 'sinatra'
 gem 'curb'
 gem 'sinatra-cross_origin'
-#gem 'slim', :git => 'git://github.com/etdev/slim.git'
 gem 'jquery-turbolinks'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
@@ -22,15 +21,18 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'monban-generators'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'awesome_print'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'binding_of_caller'
+  gem 'awesome_print'
+end
+
+group :development do
+  gem 'web-console', '~> 2.0'
+  gem 'better_errors'
 end
 

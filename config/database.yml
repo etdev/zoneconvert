@@ -8,7 +8,8 @@ development:
 test:
   <<: *default
   database: zoneconvert_test
-  username: postgres
+  username: zoneconvert
+  password: password
 production:
   <<: *default
   database: zoneconvert_production
