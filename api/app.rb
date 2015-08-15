@@ -3,9 +3,20 @@ require 'sinatra/cross_origin'
 require 'yaml'
 require 'curb'
 require 'json'
+require 'pry'
 
 enable :cross_origin
 set :allow_origin, :any
+
+# basic idea:
+#   remote_time = 08/15/2015 10:41 AM
+#   remote_time_int = standardized int rep.
+#   remote_location = Tokyo, Japan
+#   remote_offset = get_offset(remote_location)
+#   local_offset = get_offset(local_location)
+#   local_time_int = remote_time_int + diff(remote_off, local_off)
+#   local_time = normalize(local_time_int)
+#   args: ++remote_time++, ++local_location++, ++remote_location++
 
 class ZonesAPI < Sinatra::Base
   get '/' do
@@ -65,60 +76,17 @@ class ZonesAPI < Sinatra::Base
   end
 
   def load_data(filename)
-    @data = symbolize_keys(YAML.load_file(filename))
-    @base_url_mq = @data[:base_url_mq]
-    @base_url_g = @data[:base_url_g]
-    @api_key_mq = @data[:api_key_mq]
-    @api_key_g = @data[:api_key_g]
+    @data = YAML.load_file(filename).fetch("data").reduce({}, :merge)
+    @base_url_mq = @data["base_url_mq"]
+    @base_url_g = @data["base_url_g"]
+    @api_key_mq = @data["api_key_mq"]
+    @api_key_g = @data["api_key_g"]
   end
 
   def process_json(data)
-   #street = data["street"]
-   #adminArea6 = data["adminArea6"]
-   #adminArea6Type = data["adminArea6Type"]
-   #adminArea5 = data["adminArea5"]
-   #adminArea5Type = data["adminArea5Type"]
-   #adminArea4 = data["adminArea4"]
-   #adminArea4Type = data["adminArea4Type"]
-   #adminArea3 = data["adminArea3"]
-   #adminArea3Type = data["adminArea3Type"]
-   #adminArea2 = data["adminArea2"]
-   #adminArea2Type = data["adminArea2Type"]
-   #adminArea1 = data["adminArea1"]
-   #adminArea1Type = data["adminArea1Type"]
-   #postalCode = data["postalCode"]
-   #geocodeQualityCode = data["geocodeQualityCode"]
-   #geocodeQuality = data["geocodeQuality"]
-   #dragPoint = data["dragPoint"]
-   #sideOfStreet = data["sideOfStreet"]
-   #linkId = data["linkId"]
-   #unknownInput = data["unknownInput"]
-   #type = data["type"]
-   #lat = data["latLng"]["lat"]
-   #lng = data["latLng"]["lng"]
-   #disp_lat = data["displayLatLng"]["lat"]
-   #disp_lng = data["displayLatLng"]["lng"]
-
-   binding.pry
-   data.slice[*wanted_keys].merge(two_level_keys(data))
-   #{ street: street, adminArea6: adminArea6, adminArea6Type: adminArea6Type, adminArea5: adminArea5, adminArea5Type: adminArea5Type, adminArea4: adminArea4, adminArea4Type: adminArea4Type, adminArea3: adminArea3, adminArea3Type: adminArea3Type, adminArea2: adminArea2, adminArea2Type: adminArea2Type, adminArea1: adminArea1, adminArea1Type: adminArea1Type, postalCode: postalCode, geocodeQualityCode: geocodeQualityCode, geocodeQuality: geocodeQuality, dragPoint: dragPoint, sideOfStreet: sideOfStreet, linkId: linkId, unknownInput: unknownInput, type: type, lat: lat, lng: lng, disp_lat: disp_lat, disp_lng: disp_lng  }
-  end
-
-  def wanted_keys
-    %w(street, adminArea6, adminArea6Type, adminArea5, adminArea5Type,
-       adminArea4, adminArea4Type, adminArea3, adminArea3Type, adminArea2,
-       adminArea2Type, adminArea1, adminArea1Type, postalCode,
-       geocodeQualityCode, geocodeQuality, dragPoint, sideOfStreet, linkId,
-       unknownInput, type, latLng, displayLatLng
-      )
-  end
-
-  def two_level_keys(data)
     {
       lat: data["latLng"]["lat"],
-      lng: data["latLng"]["lng"],
-      disp_lat: data["displayLatLng"]["lat"],
-      disp_lng: data["displayLatLng"]["lng"]
+      lng: data["latLng"]["lng"]
     }
   end
 
