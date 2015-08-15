@@ -22,12 +22,36 @@ class ZonesAPI < Sinatra::Base
   get '/' do
     headers \
           "Access-Control-Allow-Origin"   => "*"
-    location = params["location"]
-    load_data('geocode.yml')
-    url = build_url_mq(escape_HTML(location))
-    response = process_json(get_response(url)["results"][0]["locations"][0])
+
+    DATA = load_data('geocode.yml')
+
+    binding.pry
+    # get remote time as UNIX
+    remote_time = params["remote_time"]
+    remote_time_int = remote_time.to_i
+
+    # get lat, lng for remote and local locations
+    remote_location = params["remote_loc"]
+    remote_lat, remote_lng = get_lat_lng(remote_location)
+
+    local_location = params["local_loc"]
+    local_lat, local_lng = get_lat_lng(local_location)
+
+    # get time zone offsets
+    remote_offset = get_offset(remote_lat, remote_lng)
+    local_offset = get_offset(local_lat, local_lng)
+
     time = coord_to_time(response[:lat], response[:lng], Time.now.utc)
     time.to_json
+  end
+
+  def get_offset(lat, lng)
+
+  end
+
+  def get_lat_lng(location)
+    url = build_url_mq(location)
+    process_lat_lng(get_response(url)["results"][0]["locations"][0]).values
   end
 
   def symbolize_keys(my_hash)
@@ -45,25 +69,24 @@ class ZonesAPI < Sinatra::Base
   end
 
   def build_url_mq(location)
-    "#{@base_url_mq}?key=#{@api_key_mq}&location=#{location}"
+    "#{DATA["base_url_mq"]}?key=#{DATA["api_key_mq"]}&location=#{location}"
   end
 
-  def build_url_g(latlng, timestamp)
-    "#{@base_url_g}?&location=#{latlng}&timestamp=#{timestamp}&#{@api_key_g}"
+  def build_url_g(lat_lng, timestamp="")
+    "#{DATA["base_url_g"]}?&location=#{lat_lng}&timestamp=#{timestamp}&#{DATA["api_key_g"]}"
   end
 
   def remove_utc(str)
     str[0..-4]
   end
 
-  def coord_to_time(lat, lng, base_time)
-    latlng = "#{lat},#{lng}"
-    base_timestamp = get_timestamp(base_time)
-    url = build_url_g(latlng, get_timestamp(base_timestamp))
+  def coord_to_offset(lat, lng)
+    lat_lng = "#{lat},#{lng}"
+    url = build_url_g(lat_lng)
     response = symbolize_keys(get_response(url))
-    dst_off = response[:dstOffset]
-    raw_off = response[:rawOffset]
-    process_timestamp(base_timestamp, dst_off, raw_off)
+    dst_off = response.fetch(:dstOffset).to_i
+    raw_off = response.fetch(:rawOffset).to_i
+    dst_off + raw_off
   end
 
   def get_timestamp(time)
@@ -76,14 +99,10 @@ class ZonesAPI < Sinatra::Base
   end
 
   def load_data(filename)
-    @data = YAML.load_file(filename).fetch("data").reduce({}, :merge)
-    @base_url_mq = @data["base_url_mq"]
-    @base_url_g = @data["base_url_g"]
-    @api_key_mq = @data["api_key_mq"]
-    @api_key_g = @data["api_key_g"]
+    YAML.load_file(filename).fetch("data").reduce({}, :merge)
   end
 
-  def process_json(data)
+  def process_lat_lng(data)
     {
       lat: data["latLng"]["lat"],
       lng: data["latLng"]["lng"]
