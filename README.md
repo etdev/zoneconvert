@@ -1,13 +1,20 @@
+[![Code Climate](https://codeclimate.com/github/etdev/zoneconvert/badges/gpa.svg)](https://codeclimate.com/github/etdev/zoneconvert)
+
 # ZoneConvert
-A simple tool for converting a date/time from one time zone to another
+A simple tool for converting a date/time from one time zone to another.  Answers the question "I want to remember to do X at 8:00PM Tokyo time, but what time is that for me, here in Los Angeles?"
 
 # Use Cases
-* See what time an event somewhere else will happen in your timezone
+* See what time an event somewhere else will happen locally
 * Coordinate meetings with people in other timezones
-* Many others
+* Etc.
+
+# Features
+* Employs Turbolinks for a refreshless experience
+* Sign up and store your events
+* Export your events to Google calendar
 
 # API
-Store the following data in ``api/geocode.yaml``
+Requires both Google Maps and Mapquest API keys.  Store the following data in ``api/geocode.yml``
 
 ```yaml
 data:
@@ -16,13 +23,3 @@ data:
   - api_key_mq: "<Your mapquest api key>"
   - api_key_g: "<Your google api key>"
 ```
-
-# Color Pallete
-* text-muted: #0BADA7
-* text-primary: #FFFFFF
-* text-accent: #10FFF6
-
-Primary options
-![Colors1](http://i.imgur.com/Z4eOTL2.png)
-Complementary options
-![Colors2](http://i.imgur.com/vMCWjMO.png)
