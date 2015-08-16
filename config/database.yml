@@ -1,6 +1,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: zoneconvert
+  password: password
   pool: 5
 development:
   <<: *default
