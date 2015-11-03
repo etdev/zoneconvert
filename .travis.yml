@@ -1,6 +1,8 @@
 language: ruby
 before_script:
-  - psql -c 'create database zoneconvert_test;' -U postgres
+  - psql -c "CREATE USER zoneconvert WITH PASSWORD 'password';"
+  - psql -c 'create database zoneconvert;' -U zoneconvert
+  - psql -c 'create database zoneconvert_test;' -U zoneconvert
 cache: bundler
 rvm:
   - 2.2.2
