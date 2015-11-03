@@ -1,3 +1,5 @@
+require_relative "../api/API"
+
 class Event < ActiveRecord::Base
 
   def self.get_local_time(event_params=nil)

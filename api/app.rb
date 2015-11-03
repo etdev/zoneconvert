@@ -32,7 +32,7 @@ class ZonesAPI < Sinatra::Base
     local_offset = coord_to_offset(local_lat, local_lng)
 
     offset_diff = remote_offset - local_offset
-    local_time = parse_unix_timestamp(remote_time_int + offset_diff)
+    local_time = parse_unix_timestamp(remote_time_int - offset_diff)
     {
       results: local_time.to_s
     }.to_json

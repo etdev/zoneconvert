@@ -1,1 +1,7 @@
-| Success!
+.container-fluid
+  .row
+    .col-xs-12.center-text.main-text
+      h2.text-uppercase.fat-text
+        = "#{@event.local_time} in #{@event.local_location}"
+      p.text-secondary
+        = "(#{@event.remote_time} in #{@event.remote_location})"
