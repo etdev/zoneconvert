@@ -1,4 +1,37 @@
-.row
-  .col-xs-12.center-text.main-text
-    h2.text-uppercase.fat-text About
-    p.text-secondary The About page is currently still under construction.
+.container.about__main-container
+  .row
+    .col-xs-12.center-text.main-text
+      h2.text-uppercase.fat-text About
+      p.text-secondary ZoneConvert is a web app for converting between time zones.  If you want to know what time something (an event, etc.) in another place will be happening in your local time?  Now you can easily check.
+
+  .row
+    .col-xs-12.col-md-6.about__use-cases
+      h4.text-uppercase.fat-text Use Cases
+      ul.text-secondary
+        li Coordinate video chat sessions with your friends and family overseas
+        li Remind yourself to text a friend at midnight their time on their birthday
+        li Keep track of when online keynotes, announcements etc. are happening in your time zone
+        li and much more
+
+    .col-xs-12.col-md-6.about__features
+      h4.text-uppercase.fat-text Features
+      ul.text-secondary
+        li Enter your locations in natural English, e.g. "Los Angeles, CA" or
+          "Beijing, China".
+        li User-friendly 
+        li Refreshless page reloads with AJAX and TurboLinks for faster results
+        li Login to keep track of all your events (in progress)
+        li Enable notifications to get a reminder before your event (in progress)
+        li Store events to Google Calendar with a single click
+
+    .col-xs-12.col-md-6.about__more
+      h4.text-uppercase.fat-text More Info
+      ul.text-secondary
+        li
+          = link_to("Create a new event", root_path)
+        li
+          = link_to("Visit The Github Repo", root_path)
+        li
+          = link_to("My Blog")
+        li
+          = link_to("Follow me on Twitter")

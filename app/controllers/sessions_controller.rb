@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
       flash[:success] = "Welcome back, #{user.email}!"
     else
+      flash[:warning] = "Sorry, we don't recognize that username/password combination."
       render :new
     end
   end
