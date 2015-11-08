@@ -1,6 +1,8 @@
 require_relative "../api/API"
 
 class Event < ActiveRecord::Base
+  belongs_to :user
+  validates_presence_of :local_time
 
   def self.get_local_time(event_params=nil)
     JSON.parse(

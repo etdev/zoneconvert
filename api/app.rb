@@ -37,7 +37,7 @@ class ZonesAPI < Sinatra::Base
       remote_time_int - remote_offset_delta + local_offset_delta
     )
 
-    { results: remove_utc(local_time) }.to_json
+    { results: remove_utc(local_time.to_s) }.to_json
   end
 
   def read_in_time(time_str)

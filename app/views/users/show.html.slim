@@ -1,0 +1,21 @@
+.container.about__main-container
+  .row
+    .col-xs-12.center-text.main-text
+      h2.text-uppercase.fat-text
+        = current_user.email
+      p.text-secondary This is your account page, where you can view all of your events.
+
+  .row
+    .col-xs-12.col-md-6
+      h4.text-uppercase.fat-text
+        | Your Events
+      = render current_user.events
+
+    .col-xs-12.col-md-6
+      h4.text-uppercase.fat-text
+        | Stats
+      ul.text-secondary
+        li Number of events
+          #{current_user.events.count}
+        li Member since
+          #{current_user.created_at}

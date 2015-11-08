@@ -18,25 +18,25 @@ RSpec.feature "User adds new event" do
     scenario "for Tokyo from LA" do
       fill_in_data("Tokyo, Japan", "10/08/2015 7:00 PM", "Los Angeles, CA")
       click_button "Calculate"
-      expect(page).to have_content("2015-10-08 03:00:00 UTC in Los Angeles, CA")
+      expect(page).to have_content("2015-10-08 03:00:00 in Los Angeles, CA")
     end
 
     scenario "for LA from Tokyo" do
-      fill_in_data("Los Angeles, CA", "11/08/2015 2:00 AM", "Tokyo, Japan")
+      fill_in_data("Los Angeles, CA", "10/08/2015 3:00 AM", "Tokyo, Japan")
       click_button "Calculate"
-      expect(page).to have_content("2015-11-08 19:00:00 UTC in Tokyo, Japan")
+      expect(page).to have_content("2015-10-08 19:00:00 in Tokyo, Japan")
     end
 
     scenario "for Tokyo from New York" do
-      fill_in_data("Tokyo, Japan", "11/08/2015 7:00 PM", "New York, USA")
+      fill_in_data("Tokyo, Japan", "10/08/2015 7:00 PM", "New York, USA")
       click_button "Calculate"
-      expect(page).to have_content("2015-11-08 05:00:00 UTC in New York, USA")
+      expect(page).to have_content("2015-10-08 06:00:00 in New York, USA")
     end
 
     scenario "for New York from Tokyo" do
-      fill_in_data("New York, USA", "11/08/2015 5:00 AM", "Tokyo, Japan")
+      fill_in_data("New York, USA", "10/08/2015 6:00 AM", "Tokyo, Japan")
       click_button "Calculate"
-      expect(page).to have_content("2015-11-08 19:00:00 UTC in Tokyo, Japan")
+      expect(page).to have_content("2015-10-08 19:00:00 in Tokyo, Japan")
     end
   end
 
@@ -44,25 +44,25 @@ RSpec.feature "User adds new event" do
     scenario "for Tokyo from LA" do
       fill_in_data("Tokyo, Japan", "11/08/2015 7:00 PM", "Los Angeles, CA")
       click_button "Calculate"
-      expect(page).to have_content("2015-11-08 02:00:00 UTC in Los Angeles, CA")
+      expect(page).to have_content("2015-11-08 02:00:00 in Los Angeles, CA")
     end
 
     scenario "for LA from Tokyo" do
       fill_in_data("Los Angeles, CA", "11/08/2015 2:00 AM", "Tokyo, Japan")
       click_button "Calculate"
-      expect(page).to have_content("2015-11-08 19:00:00 UTC in Tokyo, Japan")
+      expect(page).to have_content("2015-11-08 19:00:00 in Tokyo, Japan")
     end
 
     scenario "for Tokyo from New York" do
       fill_in_data("Tokyo, Japan", "11/08/2015 7:00 PM", "New York, USA")
       click_button "Calculate"
-      expect(page).to have_content("2015-11-08 05:00:00 UTC in New York, USA")
+      expect(page).to have_content("2015-11-08 05:00:00 in New York, USA")
     end
 
     scenario "for New York from Tokyo" do
       fill_in_data("New York, USA", "11/08/2015 5:00 AM", "Tokyo, Japan")
       click_button "Calculate"
-      expect(page).to have_content("2015-11-08 19:00:00 UTC in Tokyo, Japan")
+      expect(page).to have_content("2015-11-08 19:00:00 in Tokyo, Japan")
     end
   end
 

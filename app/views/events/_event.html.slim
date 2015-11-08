@@ -1,0 +1,8 @@
+= div_for(event)
+  li
+    .text-uppercase.fat-text
+      = link_to(event_path(event)) do
+        | #{event.local_time}
+        span.text-secondary in #{event.local_location}
+    span.text-secondary
+      = "(#{event.remote_time} in #{event.remote_location})"
