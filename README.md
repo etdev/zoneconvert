@@ -13,6 +13,9 @@ A simple tool for converting a date/time from one time zone to another.  Answers
 * Sign up and store your events
 * Export your events to Google calendar
 
+# Screenshots
+![image](https://cloud.githubusercontent.com/assets/6726985/11021227/5bbb6934-867e-11e5-83fc-8491c6d22e77.png)
+
 # API
 Requires both Google Maps and Mapquest API keys.  Store the following data in ``api/geocode.yml``
 
