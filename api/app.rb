@@ -28,14 +28,16 @@ class ZonesAPI < Sinatra::Base
     local_lat, local_lng = get_lat_lng(local_location)
 
     # get time zone offsets
-    remote_offset = coord_to_offset(remote_lat, remote_lng)
-    local_offset = coord_to_offset(local_lat, local_lng)
+    remote_offset_delta = coord_to_offset(remote_lat, remote_lng, remote_time_int)
+    # TODO fix this edge case
+    local_offset_delta = coord_to_offset(local_lat, local_lng, remote_time_int)
 
-    offset_diff = remote_offset - local_offset
-    local_time = parse_unix_timestamp(remote_time_int - offset_diff)
-    {
-      results: local_time.to_s
-    }.to_json
+    # l_time = r_time - r_delta + l_delta
+    local_time = parse_unix_timestamp(
+      remote_time_int - remote_offset_delta + local_offset_delta
+    )
+
+    { results: remove_utc(local_time) }.to_json
   end
 
   def read_in_time(time_str)
@@ -51,7 +53,7 @@ class ZonesAPI < Sinatra::Base
   end
 
   def parse_unix_timestamp(timestamp)
-    Time.at(timestamp)
+    Time.at(timestamp).utc
   end
 
   def get_lat_lng(location)
@@ -75,7 +77,7 @@ class ZonesAPI < Sinatra::Base
     "#{DATA["base_url_mq"]}?key=#{DATA["api_key_mq"]}&location=#{location}"
   end
 
-  def build_url_g(lat_lng, timestamp="1331161200")
+  def build_url_g(lat_lng, timestamp)
     "#{DATA["base_url_g"]}?&location=#{lat_lng}&timestamp=#{timestamp}&key=#{DATA["api_key_g"]}"
   end
 
@@ -83,9 +85,9 @@ class ZonesAPI < Sinatra::Base
     str[0..-4]
   end
 
-  def coord_to_offset(lat, lng)
+  def coord_to_offset(lat, lng, timestamp)
     lat_lng = "#{lat},#{lng}"
-    url = build_url_g(lat_lng)
+    url = build_url_g(lat_lng, timestamp)
     response = symbolize_keys(get_json_response(url))
     dst_off = response.fetch(:dstOffset).to_i
     raw_off = response.fetch(:rawOffset).to_i
