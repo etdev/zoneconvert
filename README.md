@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/etdev/zoneconvert/badges/gpa.svg)](https://codeclimate.com/github/etdev/zoneconvert)  [![Build Status](https://travis-ci.org/etdev/zoneconvert.svg?branch=master)](https://travis-ci.org/etdev/zoneconvert)
+[![Code Climate](https://codeclimate.com/github/etdev/zoneconvert/badges/gpa.svg)](https://codeclimate.com/github/etdev/zoneconvert)  [![Build Status](https://circleci.com/gh/etdev/zoneconvert.svg?&style=shield&circle-token=12036235fb756d54fc438f47e0ca70ea6c08dc07)](https://circleci.com/gh/etdev/zoneconvert)
 
 # ZoneConvert
 A simple tool for converting a date/time from one time zone to another.  Answers the question "I want to remember to do X at 8:00PM Tokyo time, but what time is that for me, here in Los Angeles?"
