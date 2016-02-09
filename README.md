@@ -23,6 +23,6 @@ Requires both Google Maps and Mapquest API keys.  Store the following data in ``
 data:
   - base_url_mq: "http://open.mapquestapi.com/geocoding/v1/address"
   - base_url_g: "https://maps.googleapis.com/maps/api/geocode/json"
-  - api_key_mq: "<Your mapquest api key>"
-  - api_key_g: "<Your google api key>"
+  - api_key_mq: <Your mapquest api key>
+  - api_key_g: <Your google api key>
 ```
