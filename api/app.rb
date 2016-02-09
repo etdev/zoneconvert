@@ -10,6 +10,10 @@ enable :cross_origin
 set :allow_origin, :any
 
 class ZonesAPI < Sinatra::Base
+  get '/' do
+    { results: "OK" }.to_json
+  end
+
   get '/getLocalTime' do
     headers \
           "Access-Control-Allow-Origin"   => "*"
