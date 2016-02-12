@@ -10,29 +10,23 @@ capybara-*.html
 /spec/tmp
 **.orig
 rerun.txt
-pickle-email-*.html
 
-## Environment normalisation:
+config/initializers/secret_token.rb
+config/secrets.yml
+config/database.yml
+
+/shared/log/*
+/shared/pids/*
+
+## Environment normalization:
 /.bundle
 /vendor/bundle
 
-# these should all be checked in to normalise the environment:
-# Gemfile.lock, .ruby-version, .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
-
-# if using bower-rails ignore default bower_components path bower.json files
-/vendor/assets/bower_components
-*.bowerrc
-bower.json
+# these should all be checked in to normalize the environment:
+.ruby-version
+.rbenv-vars
 
 # Ignore pow environment settings
 .powenv
 
-# Ignore api config file
-/api/geocode.yaml
-/api/geocode.yml
-
-.rbenv-vars
 /public/assets

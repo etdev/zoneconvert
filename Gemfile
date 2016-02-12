@@ -17,6 +17,7 @@ gem 'sinatra-cross_origin'
 gem 'jquery-turbolinks'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+gem 'puma'
 
 group :development, :test do
   gem 'pry'
